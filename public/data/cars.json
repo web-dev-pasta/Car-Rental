@@ -6,7 +6,10 @@
       "model": "Elantra",
       "mark": "Hyundai",
       "transmission": "Automatic",
-      "year": "2021"
+      "year": "2021",
+      "doors": 4,
+      "ac": "Yes",
+      "fuel": "Petrol"
     }
   },
   {
@@ -16,7 +19,10 @@
       "model": "Charger",
       "mark": "Dodge",
       "transmission": "Manual",
-      "year": "2016"
+      "year": "2016",
+      "doors": 4,
+      "ac": "No",
+      "fuel": "Petrol"
     }
   },
   {
@@ -26,7 +32,10 @@
       "model": "Tucson",
       "mark": "Hyundai",
       "transmission": "Manual",
-      "year": "2022"
+      "year": "2022",
+      "doors": 4,
+      "ac": "Yes",
+      "fuel": "Petrol"
     }
   },
   {
@@ -36,7 +45,10 @@
       "model": "3 Series",
       "mark": "BMW",
       "transmission": "Automatic",
-      "year": "2019"
+      "year": "2019",
+      "doors": 4,
+      "ac": "Yes",
+      "fuel": "Diesel"
     }
   },
   {
@@ -45,8 +57,11 @@
       "price_per_day": 65,
       "model": "Camaro",
       "mark": "Chevrolet",
-      "transmission": "Automatic",
-      "year": "2021"
+      "transmission": "Manual",
+      "year": "2021",
+      "doors": 2,
+      "ac": "Yes",
+      "fuel": "Petrol"
     }
   },
   {
@@ -55,8 +70,11 @@
       "price_per_day": 90,
       "model": "GRANDLAND X",
       "mark": "OPEL",
-      "transmission": "Manual",
-      "year": "2023"
+      "transmission": "Automatic",
+      "year": "2023",
+      "doors": 4,
+      "ac": "No",
+      "fuel": "Petrol"
     }
   }
 ]

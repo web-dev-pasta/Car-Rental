@@ -23,11 +23,15 @@ import { useMediaQuery } from "react-responsive";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import axios from "axios";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { auto } from "@cloudinary/url-gen/actions/resize";
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { AdvancedImage } from "@cloudinary/react";
 function Home() {
   const [posts, setPosts] = useState(null);
   const [cars, setCars] = useState(null);
   const [selectedCar, setSelectedCar] = useState(1);
-  const carImgs = ["car11", "car5", "car13", "car7", "car9", "car10"];
+  const carImgs = [];
 
   useEffect(() => {
     fetchData();
@@ -124,14 +128,79 @@ function Home() {
     }),
   };
 
+  const cld = new Cloudinary({ cloud: { cloudName: "dwcxvcjrr" } });
+  const car8 = cld
+    .image(`v1755032605/car8_jwxrdv.png`)
+    .format("auto")
+    .quality("auto")
+    .resize(auto().width(800));
+  const faqImg = cld
+    .image(`v1755032605/13_onmc6q.png`)
+    .format("auto")
+    .quality("auto")
+    .resize(auto().width(800));
+  const app = cld
+    .image(`v1755032605/app_i4kfot.png`)
+    .format("auto")
+    .quality("auto")
+    .resize(auto().width(800));
+  const google = cld
+    .image(`v1755032605/google-2_bfcqhd.png`)
+    .format("auto")
+    .quality("auto")
+    .resize(auto().width(800));
+
+  const hamada = cld
+    .image(`v1755032605/hamada_hqndpf.png`)
+    .format("auto")
+    .quality("auto")
+    .resize(auto().width(800));
+
+  const bg = cld
+    .image(`v1755032605/background_lxs2e1.png`)
+    .format("auto")
+    .quality("auto")
+    .resize(auto().width(1210));
+
+  const images = [
+    "car11_ol2rlv.png",
+    "car5_yh1ibc.png",
+    "car13_xaousc.png",
+    "car7_jjdriy.png",
+    "car9_ldghhj.png",
+    "car10_comemu.png",
+  ];
+  const bestImgs = [];
+  const bestImages = ["10_skvrqk.png", "11_zlu230.png", "12_nbz5f9.png"];
+
+  images.map((image) => {
+    const cldImg = cld
+      .image(`v1755032605/${image}`)
+      .format("auto")
+      .quality("auto")
+      .resize(auto().width(800));
+    carImgs.push(<AdvancedImage key={image} cldImg={cldImg} />);
+  });
+  bestImages.map((image, i) => {
+    const cldImg = cld
+      .image(`v1755032605/${image}`)
+      .format("auto")
+      .quality("auto")
+      .resize(auto().width(800));
+    bestImgs.push(
+      <AdvancedImage
+        key={image}
+        cldImg={cldImg}
+        className={`${i === bestImages.length - 1 ? styles.removed : ""}`}
+      />
+    );
+  });
+
   return (
     <div className={styles.home}>
       <div className={`${styles.landing}`}>
         <div className={styles.bg}>
-          <img
-            src={`${import.meta.env.BASE_URL}/assets/background.png`}
-            alt="Car"
-          />
+          <AdvancedImage cldImg={bg} />
         </div>
 
         {heroData ? (
@@ -175,7 +244,7 @@ function Home() {
               }
               className={styles.image}
             >
-              <img src={`${import.meta.env.BASE_URL}/assets/car8.png`} alt="" />
+              <AdvancedImage cldImg={car8} />
             </motion.div>
           </div>
         ) : (
@@ -374,13 +443,7 @@ function Home() {
               transition={{ duration: 0.4 }}
               className={styles.car_image}
             >
-              <LazyLoadImage
-                src={`${import.meta.env.BASE_URL}/assets/${
-                  carImgs[selectedCar]
-                }.png`}
-                effect="blur"
-                alt=""
-              />
+              {carImgs[selectedCar]}
             </motion.div>
 
             <div className={styles.car_data}>
@@ -439,15 +502,7 @@ function Home() {
       </div>
       <div className={styles.best}>
         <div className={`${styles.container} container`}>
-          <div className={styles.images}>
-            <img src={`${import.meta.env.BASE_URL}/assets/10.png`} alt="" />
-            <img src={`${import.meta.env.BASE_URL}/assets/11.png`} alt="" />
-            <img
-              className={styles.removed}
-              src={`${import.meta.env.BASE_URL}/assets/12.png`}
-              alt=""
-            />
-          </div>
+          <div className={styles.images}>{bestImgs.map((e, i) => e)}</div>
           <div className={styles.choose_container}>
             <div className={styles.choose}>
               <p>Why Choose Us</p>
@@ -565,7 +620,7 @@ function Home() {
       </div>
       <div className={styles.faq}>
         <div className={styles.bg_img}>
-          <img src={`${import.meta.env.BASE_URL}/assets/13.png`} alt="" />
+          <AdvancedImage cldImg={faqImg} />
         </div>
         <div className={styles.text}>
           <p>FAQ</p>
@@ -626,25 +681,16 @@ function Home() {
               <p className={styles.desc}>{downloadContent.acf.description}</p>
               <div className={styles.images}>
                 <div className={styles.img_wrapper}>
-                  <img
-                    src={`${import.meta.env.BASE_URL}/assets/app.png`}
-                    alt=""
-                  />
+                  <AdvancedImage cldImg={app} />
                 </div>
                 <div className={styles.img_wrapper}>
-                  <img
-                    src={`${import.meta.env.BASE_URL}/assets/google-2.png`}
-                    alt=""
-                  />
+                  <AdvancedImage cldImg={google} />
                 </div>
               </div>
             </div>
 
             <div className={styles.img}>
-              <img
-                src={`${import.meta.env.BASE_URL}/assets/hamada.png`}
-                alt=""
-              />
+              <AdvancedImage cldImg={hamada} />
             </div>
           </div>
         ) : (
