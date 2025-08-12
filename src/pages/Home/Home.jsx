@@ -66,7 +66,6 @@ function Home() {
   const accordionData = posts?.find(
     (e) => e.title.rendered === "Accordion"
   ).acf;
-  console.log("hello");
 
   const carRentalOne = posts?.find((e) => {
     return e.title.rendered.startsWith("Car Rental 1");
