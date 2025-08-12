@@ -8,7 +8,6 @@ import { FaRegCalendarCheck } from "react-icons/fa";
 import { IoCarSportOutline } from "react-icons/io5";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { PiTireLight } from "react-icons/pi";
-import bgCar from "/assets/13.png";
 import { FaBusAlt } from "react-icons/fa";
 import { FaRegMoneyBill1 } from "react-icons/fa6";
 import { GiReceiveMoney } from "react-icons/gi";
