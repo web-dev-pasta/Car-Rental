@@ -20,7 +20,7 @@
       "mark": "Dodge",
       "transmission": "Manual",
       "year": "2016",
-      "doors": 4,
+      "doors": 2,
       "ac": "No",
       "fuel": "Petrol"
     }
@@ -34,7 +34,7 @@
       "transmission": "Manual",
       "year": "2022",
       "doors": 4,
-      "ac": "Yes",
+      "ac": "No",
       "fuel": "Petrol"
     }
   },
