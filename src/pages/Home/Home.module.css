@@ -1,0 +1,785 @@
+.home .landing {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.home .landing .bg {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  bottom: 0;
+  right: 0;
+  clip-path: polygon(4px 0, 100% 0, 100% 100%, 4px 100%);
+}
+.home .landing .container {
+  display: flex;
+  align-items: center;
+}
+.home .landing .container > .text {
+  flex: 1;
+}
+.home .landing .container .text p.plan {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 10px;
+  margin-top: initial;
+}
+.home .landing .container .text h1 {
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+.home .landing .container .text h1 span {
+  font-weight: bold;
+  color: var(--red);
+}
+.home .landing .container .text p.desc {
+  color: #777;
+  line-height: 1.3;
+}
+.home .landing .container .text .ride {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+.home .landing .container .text .ride p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 146px;
+  border: 2px solid transparent;
+}
+.home .landing .container .text .ride p:last-child svg {
+  transition: 0.3s;
+}
+.home .landing .container .text .ride p:last-child:hover {
+  border-color: var(--black);
+  background-color: transparent;
+  color: var(--black);
+}
+.home .landing .container .text .ride p:last-child:hover svg {
+  transform: rotate(90deg);
+}
+.home .landing .container > .image {
+  flex: 1.5;
+}
+.home .book {
+  margin-top: 250px;
+  position: relative;
+}
+.home .book .abs_id {
+  position: absolute;
+  top: -180px;
+  left: 0;
+}
+.home .book .container > p {
+  font-weight: 900;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.home .book .container .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: end;
+  gap: 30px;
+  justify-content: center;
+}
+.home .book .container .grid .div_item p {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.home .book .container .grid .div_item p svg {
+  fill: var(--red);
+  font-size: 20px;
+}
+.home .book .container .grid .div_item input {
+  border: none;
+  padding: 20px 5px;
+  color: #5d5c5c;
+  caret-color: #8a8989;
+  width: 100%;
+}
+.home .book .container .grid .div_item input::placeholder {
+  color: #8a8989;
+}
+.home .book .container .grid > p {
+  text-align: center;
+}
+.plan {
+  margin-top: 120px;
+  margin-bottom: 180px;
+}
+.plan > p {
+  text-align: center;
+}
+.plan > p:first-child {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.plan > p:nth-child(2) {
+  font-weight: 900;
+  font-size: 30px;
+  margin-top: 20px;
+}
+.plan .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-top: 55px;
+  gap: 35px;
+}
+.plan .container > .box .image {
+  display: flex;
+  justify-content: center;
+}
+.plan .container > .box .image svg {
+  fill: var(--red);
+  color: var(--red);
+  font-size: 35px;
+}
+.plan .container > .box .text {
+  text-align: center;
+}
+.plan .container > .box .text p:first-child {
+  font-weight: 900;
+  font-size: 20px;
+  margin-block: 20px;
+}
+.plan .container > .box .text p:last-child {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.models {
+  margin-bottom: 180px;
+}
+.models > p {
+  text-align: center;
+  padding-inline: 15px;
+}
+.models > p:first-child {
+  font-weight: 700;
+  font-size: 25px;
+}
+.models > p:nth-child(2) {
+  font-weight: 900;
+  font-size: 30px;
+  margin-block: 20px;
+}
+
+.models > p:nth-child(3) {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.models .container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 60px;
+  margin-top: 60px;
+  align-items: center;
+}
+.models .container .car_names p {
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+.models .container .car_names p:hover,
+.models .container .car_names p.active {
+  color: white;
+  background-color: var(--red);
+}
+
+.models .container .car_image img {
+  height: 340px;
+  object-fit: contain;
+}
+.models .container .car_data .header {
+  color: white;
+  background-color: var(--red);
+  padding-block: 15px;
+  border-radius: 4px 4px 0 0;
+}
+.models .container .car_data .header p {
+  text-align: center;
+}
+.models .container .car_data .header p,
+.models .container .car_data .header span {
+  font-weight: bold;
+  font-size: larger;
+}
+.models .container .car_data .data {
+  display: flex;
+  padding-block: 10px;
+  border: 1px solid black;
+  border-bottom: none;
+}
+.models .container .car_data .first {
+  border-top: none;
+}
+.models .container .car_data .last {
+  border-bottom: 1px solid black;
+  border-radius: 0 0 4px 4px;
+}
+.models .container .car_data .data > * {
+  flex: 1;
+}
+.models .container .car_data .data p {
+  text-align: center;
+}
+.models .container .car_data .data p:first-child {
+  border-right: 1px solid var(--black);
+}
+.models .container .car_data .reserve p {
+  text-align: center;
+  font-weight: 900;
+  color: white;
+  background-color: var(--red);
+  margin-top: 20px;
+  border-radius: 4px;
+  font-size: 22px;
+  padding-block: 15px;
+  cursor: pointer;
+}
+.savings {
+  text-align: center;
+  padding-block: 50px;
+  background-color: var(--black);
+  color: white;
+  padding-inline: 15px;
+}
+.savings p:first-child {
+  margin-bottom: 20px;
+  font-weight: 900;
+  font-size: 35px;
+}
+.savings p:last-child {
+  font-size: 20px;
+}
+.savings p:last-child span {
+  color: var(--red);
+}
+.best {
+  margin-bottom: 200px;
+}
+.best .container .images {
+  position: relative;
+  height: 500px;
+  margin-bottom: 80px;
+}
+.best .container .images img {
+  position: absolute;
+  bottom: 0;
+}
+.best .container .images img:first-child {
+  left: 0;
+  width: 400px;
+}
+.best .container .images img:nth-child(2) {
+  right: 0;
+  width: 400px;
+}
+.best .container .images img:last-child {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+}
+.best .container .choose_container {
+  display: flex;
+  gap: 50px;
+}
+.best .container .choose_container > div {
+  flex: 1;
+}
+.best .container .choose_container .choose p:first-child {
+  font-weight: bold;
+  font-size: 22px;
+}
+.best .container .choose_container .choose p:nth-child(2) {
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 0.9;
+  margin-block: 20px;
+}
+
+.best .container .choose_container .choose p:nth-child(3) {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.best .container .choose_container .choose p:last-child {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+}
+.best .container .choose_container .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.best .container .choose_container .details .box {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.best .container .choose_container .details .box .image svg {
+  font-size: 25px;
+  fill: var(--red);
+}
+.best .container .choose_container .details .box .text p:first-child {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.best .container .choose_container .details .box .text p:last-child {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.4;
+  max-width: 400px;
+}
+.testimonials {
+  margin-bottom: 180px;
+}
+
+.testimonials > p {
+  text-align: center;
+  padding-inline: 15px;
+}
+.testimonials > p:first-child {
+  font-weight: 700;
+  font-size: 25px;
+}
+.testimonials > p:nth-child(2) {
+  font-weight: 900;
+  font-size: 30px;
+  margin-top: 20px;
+}
+.testimonials > p:nth-child(3) {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 650px;
+  margin-inline: auto;
+  margin-top: 20px;
+}
+.testimonials .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  margin-top: 100px;
+  max-width: 740px;
+}
+.testimonials .container > div .text p {
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.testimonials .container > div .personal_data {
+  position: relative;
+  overflow: hidden;
+}
+.testimonials .container > div .personal_data::before {
+  content: "“";
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  font-size: 130px;
+  top: 0;
+  right: 0;
+  transform: translateY(-50%);
+  color: var(--red);
+  height: 83px;
+}
+.testimonials .container > div .personal_data .user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.testimonials .container > div .personal_data .user > img {
+  width: 40px;
+  border-radius: 50%;
+}
+.testimonials .container > div .personal_data .user .name p:first-child {
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+.faq {
+  position: relative;
+  margin-bottom: 180px;
+  overflow: hidden;
+}
+.faq .bg_img {
+  position: absolute;
+  left: -10%;
+  top: 250px;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.faq .bg_img {
+  width: 440px;
+}
+.faq .text > p {
+  text-align: center;
+  padding-inline: 15px;
+}
+.faq .text > p:first-child {
+  font-weight: 700;
+  font-size: 25px;
+}
+.faq .text > p:nth-child(2) {
+  font-weight: 900;
+  font-size: 30px;
+  margin-block: 20px;
+}
+.faq .text > p:nth-child(3) {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 550px;
+  margin-inline: auto;
+}
+
+.faq .container {
+  max-width: 770px;
+  margin-top: 80px;
+}
+.download {
+  margin-bottom: 120px;
+}
+.download .container {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
+.download .container > div {
+  flex: 1;
+}
+
+.download .container .text .head {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.download .container .text .desc {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.4;
+  max-width: 650px;
+  margin-inline: auto;
+  margin-top: 20px;
+}
+.download .container .text .images {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+.download .container .text .images img {
+  cursor: pointer;
+}
+
+.download .container .img img {
+  height: 450px;
+  margin: 0 auto;
+  mix-blend-mode: multiply;
+}
+.footer {
+  margin-bottom: 120px;
+}
+.footer .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 50px;
+}
+
+.footer .container .box .bold {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.footer .container .box p:first-child {
+  font-size: 20px;
+}
+.footer .container .box:first-child > p:first-child {
+  margin-bottom: 20px;
+}
+.footer .container .box:first-child .desc {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.4;
+  max-width: 650px;
+  margin-inline: auto;
+  margin-bottom: 20px;
+}
+.footer .container .box:first-child .contact p {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.footer .container .box:first-child .contact p:last-child {
+  margin-top: 10px;
+}
+.footer .container .box:first-child .contact p:last-child svg {
+  font-size: 22px;
+}
+.footer .container .box:nth-child(2) p:not(:first-child),
+.footer .container .box:nth-child(3) p:not(:first-child) {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.footer .container .box:nth-child(4) .contact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+.footer .container .box:nth-child(4) .contact input {
+  width: 100%;
+  padding-block: 13px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  padding-left: 10px;
+  caret-color: #ddd;
+}
+@media (max-width: 1199px) {
+  .best .container .images img:first-child {
+    width: 360px;
+  }
+  .best .container .images img:nth-child(2) {
+    width: 360px;
+  }
+  .best .container .images img:last-child {
+    width: 460px;
+  }
+}
+@media (max-width: 991px) {
+  .home .landing .container {
+    flex-direction: column-reverse;
+  }
+  .models .container {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+      "car_name car_image"
+      "car_name car_data";
+  }
+  .models .container .car_names {
+    grid-area: car_name;
+  }
+  .models .container .car_names p:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  .models .container .car_data {
+    grid-area: car_data;
+  }
+  .models .container .car_image {
+    grid-area: car_image;
+  }
+  .best .container .images img:first-child {
+    width: 280px;
+  }
+  .best .container .images img:nth-child(2) {
+    width: 280px;
+  }
+  .best .container .images img:last-child {
+    width: 380px;
+  }
+  .best .container .choose_container {
+    flex-direction: column;
+  }
+  .best .container .choose_container .choose {
+    text-align: center;
+  }
+  .best .container .choose_container .choose p:last-child {
+    margin-inline: auto;
+  }
+  .best .container .choose_container .details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 35px;
+  }
+  .best .container .choose_container .details .box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .best .container .images {
+    height: 320px;
+  }
+}
+@media (max-width: 767px) {
+  .home .landing .container > .text > * {
+    text-align: center;
+  }
+  .home .landing .container > .text .ride {
+    justify-content: center;
+  }
+
+  .home .book .container .grid .div_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .home .book .container .grid .div_item p {
+    margin-bottom: initial;
+  }
+  .home .book .container .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .models .container {
+    grid-template-columns: 1fr;
+    grid-template-areas: initial;
+  }
+  .models .container .car_names,
+  .models .container .car_data,
+  .models .container .car_image {
+    grid-area: initial;
+  }
+  .models .container .car_names {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  .models .container .car_names p {
+    margin-bottom: 0 !important;
+    border: 1px solid #dfdfdf;
+  }
+  .models .container .car_names p.active,
+  .models .container .car_names p:hover {
+    border-color: var(--red);
+  }
+  .best {
+    margin-bottom: 140px;
+  }
+  .best .container .images img.removed {
+    display: none;
+  }
+
+  .best .container .images img:first-child,
+  .best .container .images img:nth-child(2) {
+    width: 300px;
+  }
+  .best .container .choose_container .choose p br {
+    display: none;
+  }
+  .home .book {
+    margin-top: 180px;
+  }
+  .testimonials,
+  .faq,
+  .plan,
+  .models {
+    margin-bottom: 140px;
+  }
+  .testimonials .container {
+    flex-direction: column;
+    margin-top: 60px;
+  }
+  .testimonials .container > div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 10px;
+  }
+  .testimonials .container > div .personal_data::before {
+    display: none;
+  }
+  .testimonials .container > div .personal_data .user {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .testimonials .container > div .personal_data .user .name {
+    text-align: center;
+  }
+  .testimonials .container > div .text p {
+    text-align: center;
+    max-width: 400px;
+    margin-bottom: initial;
+  }
+  .download .container {
+    flex-direction: column-reverse;
+  }
+}
+@media (max-width: 585px) {
+  .home .landing .container > .text > h1 {
+    font-size: 40px;
+  }
+  .home .landing .container .text .ride {
+    flex-wrap: wrap;
+  }
+  .home .book .container .grid {
+    grid-template-columns: 1fr;
+  }
+  .models .container {
+    gap: initial;
+  }
+  .models .container .car_names {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .best .container .images img:first-child {
+    display: none;
+  }
+  .best .container .images img:nth-child(2) {
+    left: 50%;
+    right: initial;
+    transform: translateX(-50%);
+  }
+  .faq .text > p:nth-child(3) {
+    display: none;
+  }
+  .download .container .img img {
+    object-fit: contain;
+  }
+  .download .container .text {
+    text-align: center;
+  }
+  .footer {
+    margin-bottom: 60px;
+  }
+  .footer .container {
+    grid-template-columns: 1fr;
+  }
+  .footer .container > .box p {
+    text-align: center;
+  }
+  .footer .container > .box:nth-child(1) .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 490px) {
+  .models .container .car_names {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 440px) {
+  .home .book .container .grid .div_item {
+    flex-direction: column;
+    align-items: start;
+  }
+  .plan .container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  .download .container .text .images {
+    flex-direction: column;
+    align-items: center;
+  }
+  .download .container .text .images > div img {
+    max-width: 200px;
+  }
+}

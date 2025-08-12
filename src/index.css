@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  font-weight: 500;
+  font-family: "Urbanist", sans-serif;
+}
+:root {
+  --black: #000000;
+  --red: #e63210;
+  --btn-red: #ff3514;
+}
+body {
+  padding-top: 120px;
+}
+.btn {
+  padding-block: 13px;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  fill: white;
+  cursor: pointer;
+  padding-inline: 20px;
+  transition: 0.3s;
+}
+.btn-red {
+  background-color: var(--btn-red);
+  box-shadow: 0 5px 10px -5px #ff6346;
+}
+.btn-red:hover {
+  background-color: #ef2607 !important ;
+}
+.btn-black {
+  background-color: var(--black);
+}
+.btn:hover {
+  color: white;
+}
+img {
+  display: block;
+  max-width: 100%;
+  user-select: none;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+p {
+  margin-bottom: initial;
+}
+a {
+  text-decoration: none;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: initial;
+}
+*:focus {
+  box-shadow: none !important;
+}
+.accordion-button {
+  gap: 20px;
+}
+.under-development {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #111;
+  color: white;
+  font-weight: bold;
+  padding-block: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.img_wrapper {
+  min-height: calc(100vh - 120px - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}

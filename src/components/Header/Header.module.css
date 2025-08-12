@@ -1,0 +1,113 @@
+.header {
+  height: 120px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: transparent;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.3s, background-color 0.3s, backdrop-filter 0.3s;
+}
+
+.scrolled_header {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px #7777772b;
+}
+/* 
+
+
+*/
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.header .container .logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.header .container .rest_header {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+}
+.header .container .logo > svg {
+  font-size: 50px;
+  fill: var(--red);
+}
+.header .container .logo .logo_text p:first-child {
+  font-weight: 900;
+  font-size: 22px;
+}
+.header .container .links {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+}
+.header .container .links a {
+  color: var(--black);
+  font-weight: bold;
+}
+.header .container .member {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.header .container .member p:first-child {
+  color: var(--black);
+  text-shadow: 0px 0px 2px #ff00008f;
+  background-color: transparent;
+  padding: 0;
+}
+.header .container .burger_icon {
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 991px) {
+  .header .container .rest_header {
+    position: absolute;
+    top: calc(100% + 5px);
+    z-index: 999;
+    width: calc(100% - 30px);
+    background-color: #ffbe9e;
+    border-radius: 8px;
+    padding-bottom: 20px;
+    display: block;
+    clip-path: polygon(100% 0, 100% 0, 0 0, 0 0);
+    transition: 0.3s;
+  }
+  .header .container .rest_header .links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  .header .container .rest_header .links a {
+    padding-block: 15px;
+    text-align: center;
+  }
+  .header .container .rest_header .member {
+    justify-content: center;
+  }
+  .header .container .rest_header.active {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+  }
+  .header .container .burger_icon {
+    display: block;
+  }
+}
+@media (max-width: 585px) {
+  .header .container .rest_header {
+    background-color: #ffbe9e;
+  }
+  .header .container .rest_header .links {
+    grid-template-columns: 1fr;
+  }
+}

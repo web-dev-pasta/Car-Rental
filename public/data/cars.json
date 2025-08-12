@@ -1,0 +1,62 @@
+[
+  {
+    "meta": {
+      "name": "Hyundai Elantra",
+      "price_per_day": 60,
+      "model": "Elantra",
+      "mark": "Hyundai",
+      "transmission": "Automatic",
+      "year": "2021"
+    }
+  },
+  {
+    "meta": {
+      "name": "Dodge",
+      "price_per_day": 120,
+      "model": "Charger",
+      "mark": "Dodge",
+      "transmission": "Manual",
+      "year": "2016"
+    }
+  },
+  {
+    "meta": {
+      "name": "Hyundai Tucson",
+      "price_per_day": 60,
+      "model": "Tucson",
+      "mark": "Hyundai",
+      "transmission": "Manual",
+      "year": "2022"
+    }
+  },
+  {
+    "meta": {
+      "name": "BMW 3 Series",
+      "price_per_day": 45,
+      "model": "3 Series",
+      "mark": "BMW",
+      "transmission": "Automatic",
+      "year": "2019"
+    }
+  },
+  {
+    "meta": {
+      "name": "Chevrolet Camaro",
+      "price_per_day": 65,
+      "model": "Camaro",
+      "mark": "Chevrolet",
+      "transmission": "Automatic",
+      "year": "2021"
+    }
+  },
+  {
+    "meta": {
+      "name": "OPEL GRANDLAND X",
+      "price_per_day": 90,
+      "model": "GRANDLAND X",
+      "mark": "OPEL",
+      "transmission": "Manual",
+      "year": "2023"
+    }
+  }
+]
