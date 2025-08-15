@@ -719,12 +719,15 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className={styles.box}>
-            <p className={`${styles.bold}`}>COMPANY</p>
-            <p>New York</p>
-            <p>Carrers</p>
-            <p>Mobile</p>
-            <p>How we work</p>
+          <div
+            className={`${styles.box} d-flex align-items-center flex-column`}
+          >
+            <p className={`${styles.bold}`}>FIND US HERE</p>
+            <img
+              src={`${import.meta.env.BASE_URL}/assets/qr.png`}
+              style={{ width: `200px` }}
+              alt=""
+            />
           </div>
           <div className={styles.box}>
             <p className={`${styles.bold}`}>WORKING HOURS</p>
@@ -732,6 +735,7 @@ function Home() {
             <p>Sat: 9:00AM - 19:00PM</p>
             <p>Sum: Closed</p>
           </div>
+
           <div className={styles.box}>
             <p className={`${styles.bold}`}>SUBSCRIPTION</p>
             <p>Subscribe your Email address for latest news & updates.</p>
