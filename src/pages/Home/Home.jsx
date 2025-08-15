@@ -733,7 +733,7 @@ function Home() {
             <p className={`${styles.bold}`}>WORKING HOURS</p>
             <p>Mon - Fri: 9:00AM - 9:00PM</p>
             <p>Sat: 9:00AM - 19:00PM</p>
-            <p>Sum: Closed</p>
+            <p>Sun: Closed</p>
           </div>
 
           <div className={styles.box}>
