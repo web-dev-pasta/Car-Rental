@@ -30,15 +30,19 @@ body {
 .btn-red {
   background-color: var(--btn-red);
   box-shadow: 0 5px 10px -5px #ff6346;
+  color: white !important;
 }
 .btn-red:hover {
   background-color: #ef2607 !important ;
 }
 .btn-black {
   background-color: var(--black);
+  border: 2px solid var(--black);
 }
-.btn:hover {
-  color: white;
+.btn-black:hover {
+  border-color: var(--black);
+  background-color: transparent;
+  color: var(--black);
 }
 img {
   display: block;

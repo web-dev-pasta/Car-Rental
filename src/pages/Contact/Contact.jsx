@@ -17,18 +17,22 @@ function Contact() {
     email: "",
     message: "",
   });
-  const validate = () => {
+  const validate = (e) => {
     let newErrors = {};
 
     const nameRegex = /^[A-Za-z\u0600-\u06FF]+$/;
     if (!formData.first_name) {
       newErrors.first_name = "First name is required";
+    } else if (formData.first_name.trim().split(" ").length > 1) {
+      newErrors.first_name = "First name must be only one word";
     } else if (!nameRegex.test(formData.first_name.trim())) {
       newErrors.first_name = "First name must contain only letters";
     }
 
     if (!formData.last_name) {
       newErrors.last_name = "Last name is required";
+    } else if (formData.last_name.trim().split(" ").length > 1) {
+      newErrors.last_name = "Last name must be only one word";
     } else if (!nameRegex.test(formData.last_name.trim())) {
       newErrors.last_name = "Last name must contain only letters";
     }
@@ -58,15 +62,17 @@ function Contact() {
         publicKey: "MVsnAatD8wzKw7dib",
       });
       window.alert("Message Sent Successfully!");
-      setFormData({
-        first_name: "",
-        last_name: "",
-        email: "",
-        message: "",
-      });
+      clearData();
     }
   };
-
+  function clearData() {
+    setFormData({
+      first_name: "",
+      last_name: "",
+      email: "",
+      message: "",
+    });
+  }
   const cld = new Cloudinary({ cloud: { cloudName: "dwcxvcjrr" } });
 
   const whatsApp = cld
@@ -74,6 +80,19 @@ function Contact() {
     .format("auto")
     .quality("auto")
     .resize(auto().width(50));
+  const to = "omarn9397@gmail.com";
+  const subject = "Car Rental";
+  const body = `Hello, Iam ${formData.first_name} ${formData.last_name}\nMy Email Is : ${formData.email}\nMy Message Is : ${formData.message}`;
+
+  const gmailWeb = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+    to
+  )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const mailto = `mailto:${to}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
+
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const emailLink = isMobile ? mailto : gmailWeb;
 
   return (
     <motion.div
@@ -173,10 +192,25 @@ function Contact() {
                       )}
                     </div>
 
-                    <div className="col-12 d-grid">
-                      <button type="submit" className={`btn btn-red`}>
-                        Submit
+                    <div className="col-12 d-flex flex-column flex-md-row gap-3">
+                      <button type="submit" className="btn btn-red flex-fill">
+                        Submit Via EmailJS
                       </button>
+                      <a
+                        href={emailLink}
+                        target="_blank"
+                        rel="noopener"
+                        className="btn btn-black flex-fill"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (validate(e)) {
+                            clearData();
+                            window.open(emailLink, "_blank");
+                          }
+                        }}
+                      >
+                        Submit Via Gmail
+                      </a>
                     </div>
                   </div>
                 </form>
