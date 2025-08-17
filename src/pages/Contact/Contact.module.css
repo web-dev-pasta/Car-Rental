@@ -1,0 +1,7 @@
+.text_area {
+  resize: none;
+}
+
+.submit_button {
+  background-color: var(--red);
+}

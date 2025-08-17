@@ -17,13 +17,16 @@ function Header() {
     "Contact",
   ];
   const [scrolled, setScrolled] = useState(false);
+  const [contact, setContact] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 180) {
         setScrolled(true);
+        setContact(true);
       } else {
         setScrolled(false);
+        setContact(false);
       }
     };
 
@@ -59,6 +62,9 @@ function Header() {
                     to={e == "Home" ? "/" : e.toLowerCase()}
                     key={i}
                     onClick={() => setOpenedMenu(false)}
+                    className={
+                      e === "Contact" && contact ? styles.contact_toggle : ""
+                    }
                   >
                     {e}
                   </Link>

@@ -14,7 +14,7 @@ import { GiReceiveMoney } from "react-icons/gi";
 import HTMLReactParser from "html-react-parser/lib/index";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useEffect } from "react";
 import { FaPhone } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
@@ -31,6 +31,23 @@ function Home() {
   const [cars, setCars] = useState(null);
   const [selectedCar, setSelectedCar] = useState(1);
   const carImgs = [];
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 180) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     fetchData();
@@ -197,6 +214,7 @@ function Home() {
 
   return (
     <div className={styles.home}>
+
       <div className={`${styles.landing}`}>
         <div className={styles.bg}>
           <AdvancedImage cldImg={bg} />
