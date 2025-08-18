@@ -215,7 +215,7 @@ function Home() {
           <AdvancedImage
             cldImg={bg}
             alt="background_image"
-            attributes={{ fetchpriority: "high" }}
+            fetchPriority="high"
           />
         </div>
 
