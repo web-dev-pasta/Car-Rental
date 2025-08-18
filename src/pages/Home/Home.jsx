@@ -50,30 +50,22 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    fetchData();
-
-    const handleOnline = () => {
-      fetchData();
-    };
-    window.addEventListener("online", handleOnline);
-    return () => {
-      window.removeEventListener("online", handleOnline);
-    };
+    Promise.all([
+      fetch(`${import.meta.env.BASE_URL}/data/posts.json`).then((r) =>
+        r.json()
+      ),
+      fetch(`${import.meta.env.BASE_URL}/data/cars.json`).then((r) => r.json()),
+    ]).then(([posts, cars]) => {
+      setPosts(posts);
+      setCars(cars);
+    });
   }, []);
-
-  const fetchData = async () => {
-    try {
-      const [postsRes, carsRes] = await Promise.all([
-        axios.get(`${import.meta.env.BASE_URL}/data/posts.json`),
-        axios.get(`${import.meta.env.BASE_URL}/data/cars.json`),
-      ]);
-
-      setPosts(postsRes.data);
-      setCars(carsRes.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  /*
+  
+  
+  
+  
+  */
 
   const heroData = posts?.find((e) => e.title.rendered === "Hero");
   const accordionData = posts?.find(
@@ -260,7 +252,7 @@ function Home() {
               }
               className={styles.image}
             >
-              <AdvancedImage cldImg={car8} alt="car8" />
+              <AdvancedImage cldImg={car8} alt="car8" fetchPriority="high" />
             </motion.div>
           </div>
         ) : (
