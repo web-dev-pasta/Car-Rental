@@ -195,7 +195,9 @@ function Home() {
       .format("auto")
       .quality("auto")
       .resize(auto().width(800));
-    carImgs.push(<AdvancedImage key={image} cldImg={cldImg} />);
+    carImgs.push(
+      <AdvancedImage key={image} cldImg={cldImg} alt={image.split("_")[0]} />
+    );
   });
   bestImages.map((image, i) => {
     const cldImg = cld
@@ -208,16 +210,16 @@ function Home() {
         key={image}
         cldImg={cldImg}
         className={`${i === bestImages.length - 1 ? styles.removed : ""}`}
+        alt={`best_section_car_${image.split("_")[0]}`}
       />
     );
   });
 
   return (
     <div className={styles.home}>
-
       <div className={`${styles.landing}`}>
         <div className={styles.bg}>
-          <AdvancedImage cldImg={bg} />
+          <AdvancedImage cldImg={bg} alt="background_image" />
         </div>
 
         {heroData ? (
@@ -261,7 +263,7 @@ function Home() {
               }
               className={styles.image}
             >
-              <AdvancedImage cldImg={car8} />
+              <AdvancedImage cldImg={car8} alt="car8" />
             </motion.div>
           </div>
         ) : (
@@ -322,33 +324,33 @@ function Home() {
           <p>Book a car</p>
           <div className={styles.grid}>
             <div className={styles.div_item}>
-              <p>
+              <label>
                 <FaCarAlt /> Select Your Car Type
-              </p>
+              </label>
               <input type="text" placeholder="Select your car type" />
             </div>
             <div className={styles.div_item}>
-              <p>
+              <label>
                 <FaLocationDot /> Pick-up
-              </p>
+              </label>
               <input type="text" placeholder="Select pick up location" />
             </div>
             <div className={styles.div_item}>
-              <p>
+              <label>
                 <FaLocationDot /> Drop-of
-              </p>
+              </label>
               <input type="text" placeholder="Select drop off location" />
             </div>
             <div className={styles.div_item}>
-              <p>
+              <label>
                 <FaRegCalendarCheck /> Pick-up
-              </p>
+              </label>
               <input type="date" />
             </div>
             <div className={styles.div_item}>
-              <p>
+              <label>
                 <FaRegCalendarCheck /> Drop-of
-              </p>
+              </label>
               <input type="date" />
             </div>
             <p className="btn btn-red">Search</p>
@@ -421,7 +423,7 @@ function Home() {
           <img
             src={`${import.meta.env.BASE_URL}/assets/load.gif`}
             style={{ marginInline: `auto` }}
-            alt=""
+            alt="load"
           />
         )}
       </div>
@@ -507,7 +509,7 @@ function Home() {
           <img
             src={`${import.meta.env.BASE_URL}/assets/load.gif`}
             style={{ marginInline: `auto` }}
-            alt=""
+            alt="load"
           />
         )}
       </div>
@@ -604,7 +606,7 @@ function Home() {
               <div className={styles.user}>
                 <img
                   src="https://randomuser.me/api/portraits/women/11.jpg"
-                  alt=""
+                  alt="woman"
                 />
                 <div className={styles.name}>
                   <p>Parry Hotter</p>
@@ -624,7 +626,7 @@ function Home() {
               <div className={styles.user}>
                 <img
                   src="https://randomuser.me/api/portraits/men/7.jpg"
-                  alt=""
+                  alt="man"
                 />
                 <div className={styles.name}>
                   <p>Ron Rizzly</p>
@@ -637,7 +639,7 @@ function Home() {
       </div>
       <div className={styles.faq}>
         <div className={styles.bg_img}>
-          <AdvancedImage cldImg={faqImg} />
+          <AdvancedImage cldImg={faqImg} alt="faqImg" />
         </div>
         <div className={styles.text}>
           <p>FAQ</p>
@@ -685,7 +687,7 @@ function Home() {
             <img
               src={`${import.meta.env.BASE_URL}/assets/load.gif`}
               style={{ marginInline: `auto` }}
-              alt=""
+              alt="load"
             />
           )}
         </div>
@@ -698,23 +700,23 @@ function Home() {
               <p className={styles.desc}>{downloadContent.acf.description}</p>
               <div className={styles.images}>
                 <div className={styles.img_wrapper}>
-                  <AdvancedImage cldImg={app} />
+                  <AdvancedImage cldImg={app} alt="app_store" />
                 </div>
                 <div className={styles.img_wrapper}>
-                  <AdvancedImage cldImg={google} />
+                  <AdvancedImage cldImg={google} alt="google_play" />
                 </div>
               </div>
             </div>
 
             <div className={styles.img}>
-              <AdvancedImage cldImg={hamada} />
+              <AdvancedImage cldImg={hamada} alt="banner_image" />
             </div>
           </div>
         ) : (
           <img
             src={`${import.meta.env.BASE_URL}/assets/load.gif`}
             style={{ marginInline: `auto` }}
-            alt=""
+            alt="load"
           />
         )}
       </div>
@@ -744,7 +746,7 @@ function Home() {
             <img
               src={`${import.meta.env.BASE_URL}/assets/qr.png`}
               style={{ width: `200px` }}
-              alt=""
+              alt="qr_img"
             />
           </div>
           <div className={styles.box}>
