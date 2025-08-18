@@ -51,11 +51,9 @@ function Home() {
 
   useEffect(() => {
     fetchData();
-    fetchCars();
 
     const handleOnline = () => {
       fetchData();
-      fetchCars();
     };
     window.addEventListener("online", handleOnline);
     return () => {
@@ -65,18 +63,13 @@ function Home() {
 
   const fetchData = async () => {
     try {
-      await axios
-        .get(`${import.meta.env.BASE_URL}/data/posts.json`)
-        .then((res) => setPosts(res.data));
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const fetchCars = async () => {
-    try {
-      await axios
-        .get(`${import.meta.env.BASE_URL}/data/cars.json`)
-        .then((res) => setCars(res.data));
+      const [postsRes, carsRes] = await Promise.all([
+        axios.get(`${import.meta.env.BASE_URL}/data/posts.json`),
+        axios.get(`${import.meta.env.BASE_URL}/data/cars.json`),
+      ]);
+
+      setPosts(postsRes.data);
+      setCars(carsRes.data);
     } catch (error) {
       console.error(error);
     }
@@ -219,7 +212,11 @@ function Home() {
     <div className={styles.home}>
       <div className={`${styles.landing}`}>
         <div className={styles.bg}>
-          <AdvancedImage cldImg={bg} alt="background_image" />
+          <AdvancedImage
+            cldImg={bg}
+            alt="background_image"
+            attributes={{ fetchpriority: "high" }}
+          />
         </div>
 
         {heroData ? (
@@ -342,16 +339,16 @@ function Home() {
               <input type="text" placeholder="Select drop off location" />
             </div>
             <div className={styles.div_item}>
-              <label>
+              <label htmlFor="pickUpDate">
                 <FaRegCalendarCheck /> Pick-up
               </label>
-              <input type="date" />
+              <input type="date" id="pickUpDate" />
             </div>
             <div className={styles.div_item}>
-              <label>
+              <label htmlFor="dropOfDate">
                 <FaRegCalendarCheck /> Drop-of
               </label>
-              <input type="date" />
+              <input type="date" id="dropOfDate" />
             </div>
             <p className="btn btn-red">Search</p>
           </div>
